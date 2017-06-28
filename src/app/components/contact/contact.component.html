@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Contact List App</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>         
+          <th>Email</th>
+          <th>Number</th>
+          <th>Action</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="Enter name" required></td>
+          <td><input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Enter Email" required></td>
+          <td><input type="text" [(ngModel)]="pnumber" name="pnumber" class="form-control" placeholder="Enter Phone Number" required></td>
+          <td><button class="btn btn-primary" (click)="addTask($event)">Add Contact</button></td>
+          
+        </tr>
+        <tr *ngFor="let contact of lists">
+          <td><input type="text" [(ngModel)]="contact.name" name="name" class="form-control" placeholder="Enter name"></td>
+          <td><input type="email" [(ngModel)]="contact.email" name="email" class="form-control" placeholder="Enter name"></td>
+          <td><input type="text" [(ngModel)]="contact.pnumber" name="pnumber" class="form-control" placeholder="Enter name"></td>
+          <td><button class="btn btn-danger" (click)="deleteTask(contact._id)">Remove</button></td>
+          <td><button class="btn btn-info"  (click)="update(contact)">Update</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
